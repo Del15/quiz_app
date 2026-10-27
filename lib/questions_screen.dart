@@ -4,6 +4,8 @@ import 'package:quiz_app/data/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
+  const QuestionsScreen({super.key, required this.onSelectedAnswer});
+  final void Function(String answer) onSelectedAnswer;
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -14,6 +16,7 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
   void answerQuestion() {
+    widget.onSelectedAnswer('...');
     setState(() {
       currentQuestionIndex++;
     });
@@ -33,9 +36,9 @@ class _QuestionScreenState extends State<QuestionsScreen> {
             Text(
               currentQuestion.text,
               style: GoogleFonts.lato(
-                color:Colors.white,
-                fontSize:24,
-                fontWeight:FontWeight.bold,
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
             ),
