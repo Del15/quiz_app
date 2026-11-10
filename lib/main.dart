@@ -8,7 +8,7 @@ void main() {
         gradient: LinearGradient(
           colors: [
             Color.fromARGB(255, 78, 13, 151),
-            Color.fromARGB(255, 108, 15, 62)
+            Color.fromARGB(100, 55, 9, 20)
           ]
         )
       ),
