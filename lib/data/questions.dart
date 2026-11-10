@@ -6,7 +6,7 @@ const questions = [
     ["London", "Berlin", "Paris", "Madrid"]
   ),
   QuizQuestion(
-    "What is the largest planet in our solar system?",
+    "What planet is the third planet from the sun?",
     ["Earth", "Jupiter", "Saturn", "Uranus"]
   ),
   QuizQuestion(

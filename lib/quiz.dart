@@ -1,47 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/questions_screen.dart';
 import 'package:quiz_app/data/questions.dart';
-import 'package:quiz_app/start_screen.dart';
+import 'package:quiz_app/questions_screen.dart';
 import 'package:quiz_app/results_screen.dart';
+import 'package:quiz_app/start_screen.dart';
 
-class Quiz extends StatefulWidget {
-  const Quiz({super.key});
+class QuizStart extends StatefulWidget{
+  const QuizStart({super.key});
   @override
-  State<Quiz> createState() {
-    return _QuizState();
+  State<StatefulWidget> createState() {
+   return _QuizState();
+   
   }
 }
 
-class _QuizState extends State<Quiz> {
-  Widget? activeScreen;
-  List<String> selectedAnswers = [];
-  //Make this in quiz so every screen can see it
-  void chooseAnswer(String answer) {
-    selectedAnswers.add(answer);
-    if (selectedAnswers.length == questions.length) {
-      setState(() {
-        activeScreen = ResultsScreen(
-          chosenAnswers: selectedAnswers);
+  class _QuizState extends State<QuizStart>{
+    Widget? activeScreen;
+    List<String> selectedAnswers = [];
+     //Make in quiz so everything could see it
+    void chooseAnswer(String answer) {
+
+      selectedAnswers.add(answer);
+        if(selectedAnswers.length == questions.length){
+          
+          setState(() {
+            //selectedAnswers = []; //You dont want to delete it
+            activeScreen = ResultsScreen(chosenAnswers: selectedAnswers);
+          });
+          
+
+        }
+
+        
+    }
+
+    void switchScreen(){
+    
+      setState((){
+        activeScreen = QuestionWidget(onSelectedAnswer: chooseAnswer);
+      
       });
     }
-  }
+    void initState()
+    {
+      activeScreen = StartScreen(switchScreen);
+      super.initState();
+    }
 
-  void switchScreen() {
-    setState(() {
-      activeScreen = QuestionsScreen(onSelectedAnswer: chooseAnswer);
-    });
-  }
-
-  @override
-  void initState() {
-    activeScreen = StartScreen(switchScreen);
-    super.initState();
-  }
-
+    
   @override
   Widget build(BuildContext context) {
     return activeScreen!;
   }
-}
+    
+    
+  }
 
- 
+
