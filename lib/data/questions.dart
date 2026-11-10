@@ -3,7 +3,7 @@ import 'package:quiz_app/models/quiz_question.dart';
 const questions = [
   QuizQuestion(
     "What is the capital of France?",
-    ["London", "Berlin", "Paris", "Madrid"]
+    ["Paris", "Berlin", "Paris", "Madrid"]
   ),
   QuizQuestion(
     "What planet is the third planet from the sun?",
@@ -11,7 +11,7 @@ const questions = [
   ),
   QuizQuestion(
     "What is the largest planet in our solar system?",
-    ["Earth", "Mars", "Jupiter", "Saturn"]
+    ["Jupiter", "Mars", "Jupiter", "Saturn"]
   ),
 
 QuizQuestion(
@@ -21,7 +21,7 @@ QuizQuestion(
 
 QuizQuestion(
     "How many continents are there?",
-    ["5", "6", "7", "8"]
+    ["7", "6", "5", "2"]
   ),
 
 QuizQuestion(
@@ -31,7 +31,7 @@ QuizQuestion(
 
 QuizQuestion(
     "Which ocean is the largest?",
-    ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"]
+    ["Pacific Ocean", "Indian Ocean", "Atlantic Ocean", "Arctic Ocean"]
   ),
 
 QuizQuestion(
@@ -41,11 +41,11 @@ QuizQuestion(
 
 QuizQuestion(
     "Which country is home to the Great Wall?",
-    ["India", "China", "Japan", "Thailand"]
+    ["China", "India", "Japan", "Thailand"]
   ),
 
 QuizQuestion(
     "How many sides does a hexagon have?",
-    ["5", "6", "7", "8"]
+    ["6", "2", "12", "8"]
   ),
 ];
