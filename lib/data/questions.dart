@@ -3,7 +3,7 @@ import 'package:quiz_app/models/quiz_question.dart';
 const questions = [
   QuizQuestion(
     "What is the capital of France?",
-    ["Paris", "Berlin", "Paris", "Madrid"]
+    ["Paris", "Berlin", "Rome", "Madrid"]
   ),
   QuizQuestion(
     "What planet is the third planet from the sun?",
@@ -16,7 +16,7 @@ const questions = [
 
 QuizQuestion(
     "Which animal is known as the King of the Jungle?",
-    ["Tiger", "Lion", "Elephant", "Bear"]
+    ["Lion", "Tiger", "Elephant", "Bear"]
   ),
 
 QuizQuestion(

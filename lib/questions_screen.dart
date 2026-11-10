@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
 import 'package:quiz_app/data/questions.dart';
@@ -41,9 +42,12 @@ class _QuestionScreenState extends State<QuestionWidget> {
           ),
           const SizedBox(height: 30),
           ...currentQuestion.getShuffledAnswers().map((item) {
-            return AnswerButton(answerText: item, onTap: (){
-              answerQuestion(item);
-            } );
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: AnswerButton(answerText: item, onTap: (){
+                answerQuestion(item);
+              } ),
+            );
           }),
         ],
       ),
