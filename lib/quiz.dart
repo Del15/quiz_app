@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/questions_screen.dart';
@@ -24,13 +25,13 @@ class QuizStart extends StatefulWidget{
           
           setState(() {
             //selectedAnswers = []; //You dont want to delete it
-            activeScreen = ResultsScreen(chosenAnswers: selectedAnswers);
+            activeScreen = ResultsScreen(
+              chosenAnswers: selectedAnswers,
+              restartQuiz: restartQuiz,
+            );
           });
           
-
         }
-
-        
     }
 
     void switchScreen(){
@@ -40,6 +41,14 @@ class QuizStart extends StatefulWidget{
       
       });
     }
+
+    void restartQuiz(){
+      setState((){
+        selectedAnswers = [];
+        activeScreen = StartScreen(switchScreen);
+      });
+    }
+
     void initState()
     {
       activeScreen = StartScreen(switchScreen);
@@ -52,7 +61,4 @@ class QuizStart extends StatefulWidget{
     return activeScreen!;
   }
     
-    
   }
-
-

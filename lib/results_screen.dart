@@ -1,14 +1,19 @@
 
+
 import 'package:flutter/material.dart';
-import 'package:quiz_app/data/Questions.dart';
+import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/questions_summary.dart';
 
 
-
-
 class ResultsScreen extends StatelessWidget{
-  const ResultsScreen({super.key, required this.chosenAnswers});
-  final List <String> chosenAnswers;
+  const ResultsScreen({
+    super.key,
+    required this.chosenAnswers,
+    required this.restartQuiz,
+  });
+
+  final List<String> chosenAnswers;
+  final void Function() restartQuiz;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -18,7 +23,7 @@ class ResultsScreen extends StatelessWidget{
         {
           'question_index': i,
           'question': questions[i].text,
-          'correct_answer' :questions[i].answers[0],
+          'correct_answer': questions[i].answers[0],
           'user_answer': chosenAnswers[i],
         },
       );
@@ -26,7 +31,6 @@ class ResultsScreen extends StatelessWidget{
 
     return summary;
   }
-
 
   @override
   Widget build(context)
@@ -36,9 +40,10 @@ class ResultsScreen extends StatelessWidget{
     final numTotalQuestions = questions.length;
     final numCorrectQuestions = summaryData.where(
       (data){
-      return data['correct_answer'] == data['user_answer'];
-    }
+        return data['correct_answer'] == data['user_answer'];
+      }
     ).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -46,14 +51,29 @@ class ResultsScreen extends StatelessWidget{
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
-               Text('You answered $numCorrectQuestions of $numTotalQuestions questions Correctly'),
+            children: [
+              Text('You answered $numCorrectQuestions of $numTotalQuestions questions Correctly',
+              style: const TextStyle(
+                fontSize: 20,),
+              textAlign: TextAlign.center,
+              ),
               const SizedBox(height:50,width: 100,),
               QuestionsSummary(summaryData: summaryData),
               const SizedBox(height:300, width: 400),
               TextButton(
-                onPressed: (){},
-                child: const Text('Restart Quiz'),
+                onPressed: restartQuiz,
+                style: TextButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 5, 1, 14),
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 25,
+                    vertical: 15,
+                  ),
+                ),
+                child: const Text(
+                  'Restart Quiz',
+                  style: TextStyle(fontSize: 25),
+                ),
               )
             ],
           ),

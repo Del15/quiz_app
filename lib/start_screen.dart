@@ -17,7 +17,7 @@ class StartScreen extends StatelessWidget {
           ),
         const SizedBox(height:80 ),
         const Text(
-          "Take quiz and challenge yourself",
+          "Test your knowledge, Better get all answers right",
           style: TextStyle(
             color: Colors.white, fontSize: 24),
         ),
@@ -29,7 +29,7 @@ class StartScreen extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.white),
           icon:Icon(Icons.airplay_rounded),
-          label:const Text("Start Quiz")
+          label:const Text("Begin Quiz"),
         ),
       ],
     ),
